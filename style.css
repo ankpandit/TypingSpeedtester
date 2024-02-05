@@ -86,8 +86,10 @@ body{
 #normal{
     color:black ;
 }
+#result{
+    margin-top: 30px;
+}
 h4{
-    
     display: none;
 }
 
@@ -100,11 +102,15 @@ h4{
         font-size: var(--smallFont);
     }
     #inputfield{
-        height: 80px;
+        height: 120px;
         border-radius: 15px;
         padding: 15px;
+        font-size: var(--smallFont);
     }
     #inputfield::placeholder{
+        font-size: var(--smallFont);
+    }
+    #result{
         font-size: var(--smallFont);
     }
 }
