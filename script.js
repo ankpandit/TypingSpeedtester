@@ -1,5 +1,6 @@
 let qouteAPI = 'https://api.quotable.io/random?minLength=80&maxLength=100'
 let qoute ;
+let audio = new Audio("Quack Sound Effect effect.mp3");
 
 // word countings for result calculation 
 let words ;
@@ -13,7 +14,7 @@ let count = 0 ;
 let parent = document.getElementById('qoute')
 const mistake = document.getElementById("mistakes")
 let mistakeCount = 0 ;
-
+let lastRight = 0 ;
 async function getQoute(){
     let qoute
     await fetch(qouteAPI).then((response)=>{
@@ -75,19 +76,24 @@ function check(){
             d-- ;
         }
 
-
-
-        // count>0?count--:0
-        // qChild = parent.children[count]
-        // qChild.id = 'normal'
     }
     else{
+        audio.play() ;
         qChild.id = 'mistake'
-        count++ ;
+        if(input.substring(prevString.length) == " "){
+            count++;
+        }
+        else if(qoute[count] == " "){
+            
+        }
+        else{
+            count++ ;
+        }
         mistakeCount++
         mistake.innerHTML = mistakeCount ;
     }
-    prevString = input ;
+    prevString = input ;       //assigning currString to prevString
+
     if(count == qoute.length){
         result()
     }
